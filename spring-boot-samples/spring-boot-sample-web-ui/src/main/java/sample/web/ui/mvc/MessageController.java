@@ -18,6 +18,7 @@ package sample.web.ui.mvc;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import sample.web.ui.Message;
 import sample.web.ui.MessageRepository;
 
@@ -39,6 +40,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/")
 public class MessageController {
 
+	@Autowired
 	private final MessageRepository messageRepository;
 
 	public MessageController(MessageRepository messageRepository) {
@@ -79,7 +81,6 @@ public class MessageController {
 
 	@GetMapping(value = "delete/{id}")
 	public ModelAndView delete(@PathVariable("id") Long id) {
-		this.messageRepository.deleteMessage(id);
 		Iterable<Message> messages = this.messageRepository.findAll();
 		return new ModelAndView("messages/list", "messages", messages);
 	}

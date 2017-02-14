@@ -17,11 +17,18 @@ import java.util.Calendar;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * @author Rob Winch
  */
+@Entity
 public class Message {
 
+	@Id
+	@GeneratedValue
 	private Long id;
 
 	@NotEmpty(message = "Message is required.")
