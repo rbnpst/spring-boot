@@ -11,9 +11,10 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package sample.web.ui;
+package sample.web.ui.repository;
 
 import org.springframework.data.repository.CrudRepository;
+import sample.web.ui.model.Message;
 
 /**
  * @author Rob Winch
